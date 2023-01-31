@@ -54,6 +54,13 @@ const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial)
 scene.add(sphere);
 sphere.position.set(-10, 10, 0);
 
+const gui = new dat.GUI()
+const options = {
+    sphereColor: '#ffea00',
+};
+gui.addColor(options, 'sphereColor').onChange(function(e){
+    sphere.material.color.set(e);
+})
 const animate = (time) => {
     box.rotation.x = time / 1000;
     box.rotation.y = time / 1000;
